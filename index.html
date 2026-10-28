@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2459d3">
+  <title>QuizSpark | Online Quiz Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="QuizSpark home"><span class="brand-mark">Q</span><span>QuizSpark</span></a>
+    <span class="top-note">LEARN · PLAY · IMPROVE</span>
+  </header>
+
+  <main class="app-shell">
+    <section id="home-screen" class="panel home-screen">
+      <div class="eyebrow">WELCOME TO QUIZSPARK</div>
+      <h1>Challenge your <span>knowledge.</span></h1>
+      <p class="intro">Choose a category, race against the clock, and see how much you know.</p>
+
+      <div class="section-heading">
+        <h2>Choose a category</h2>
+        <span class="muted">A new question order every time</span>
+      </div>
+      <div class="category-grid" id="category-grid" aria-label="Quiz categories"></div>
+
+      <div class="start-row">
+        <label class="duration-control" for="duration-select">
+          <span>Time limit</span>
+          <select id="duration-select">
+            <option value="60">1 minute</option>
+            <option value="120" selected>2 minutes</option>
+            <option value="300">5 minutes</option>
+          </select>
+        </label>
+        <button id="start-btn" class="btn btn-primary" disabled>Start quiz <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="best-score-card">
+        <div class="trophy">★</div>
+        <div><strong>Your personal best</strong><p id="home-best">No score yet — take your first quiz!</p></div>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="panel quiz-screen hidden" aria-live="polite">
+      <div class="quiz-topline">
+        <button id="quit-btn" class="text-btn" type="button">← Categories</button>
+        <span class="category-chip" id="quiz-category">General Knowledge</span>
+      </div>
+      <div class="quiz-heading">
+        <div>
+          <p class="eyebrow">QUESTION <span id="question-number">1</span> OF <span id="question-total">10</span></p>
+          <h1 id="question-title">Question appears here</h1>
+        </div>
+        <div class="timer" id="timer" aria-label="Time remaining"><span class="timer-icon">◷</span><span id="time-left">02:00</span></div>
+      </div>
+      <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      <div id="options-list" class="options-list"></div>
+      <div class="quiz-footer">
+        <span class="muted" id="answered-count">0 answered</span>
+        <button id="next-btn" class="btn btn-primary" type="button">Next question →</button>
+      </div>
+    </section>
+
+    <section id="result-screen" class="panel result-screen hidden" aria-live="polite">
+      <div class="result-hero">
+        <div class="result-icon" id="result-icon">★</div>
+        <p class="eyebrow">QUIZ COMPLETED</p>
+        <h1 id="result-heading">Great effort!</h1>
+        <p id="result-message" class="intro">Here is your performance summary.</p>
+        <div class="score-number"><span id="score-percent">0</span><small>%</small></div>
+        <p class="score-caption"><span id="score-correct">0</span> correct out of <span id="score-total">0</span> questions</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-icon blue">☰</span><span class="stat-label">Total questions</span><strong id="stat-total">0</strong></div>
+        <div class="stat-card"><span class="stat-icon purple">✓</span><span class="stat-label">Attempted</span><strong id="stat-attempted">0</strong></div>
+        <div class="stat-card"><span class="stat-icon green">✓</span><span class="stat-label">Correct answers</span><strong id="stat-correct">0</strong></div>
+        <div class="stat-card"><span class="stat-icon red">✕</span><span class="stat-label">Incorrect / skipped</span><strong id="stat-incorrect">0</strong></div>
+      </div>
+
+      <div class="review-header">
+        <div><h2>Answer review</h2><p class="muted">Check the right answer and learn as you go.</p></div>
+        <span id="review-count" class="category-chip">0 questions</span>
+      </div>
+      <div id="review-list" class="review-list"></div>
+      <div class="result-actions">
+        <button id="retry-btn" class="btn btn-primary" type="button">Try this category again ↻</button>
+        <button id="another-btn" class="btn btn-secondary" type="button">Choose another category</button>
+      </div>
+    </section>
+  </main>
+  <footer>QuizSpark · Practice makes progress</footer>
+  <script src="script.js"></script>
+</body>
+</html>
